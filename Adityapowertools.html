@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Power Tools Shop Ad</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f0f0f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card */
+.card {
+    width: 350px;
+    padding: 25px;
+    background: #111;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+/* Glow Border Animation */
+.card::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, red, orange, yellow, red);
+    animation: rotate 5s linear infinite;
+    top: -50%;
+    left: -50%;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    background: #111;
+    border-radius: 12px;
+}
+
+/* Content */
+.content {
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Button */
+.btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #ffcc00;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #ffaa00;
+    transform: scale(1.1);
+}
+
+/* Hover Effect */
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Keyframes */
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Popup */
+.popup {
+    position: fixed;
+    bottom: 20px;
+    background: #ffcc00;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="content">
+        <h1>🔧 ADITYA POWER TOOLS</h1>
+        <p>Drill Machine | Cutter | Grinder</p>
+        <p><strong>Best Quality | Best Price</strong></p>
+        <button class="btn" onclick="showMsg()">Call Now</button>
+    </div>
+</div>
+
+<div class="popup" id="popup">
+    📞 Call: 8329030056
+</div>
+
+<script>
+function showMsg() {
+    var popup = document.getElementById("popup");
+    popup.style.display = "block";
+
+    setTimeout(() => {
+        popup.style.display = "none";
+    }, 3000);
+}
+</script>
+
+</body>
+</html>
